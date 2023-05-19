@@ -1,6 +1,56 @@
 # tellme
 
 It's a small Go package exposing running app informations.
-It's inspired by **Spring Actuator***** .
+It's inspired by **Spring Actuator** . It's inspired by [go-actuator](https://github.com/sinhashubham95/go-actuator)
 
 NB: I was forced to expose the same information for a Go microservice :D
+
+## Installation
+
+```bash
+go get github.com/josuebrunel/tellme
+```
+
+## How to use
+
+```go
+
+import "github.com/josuebrunel/tellme"
+
+// These variables are expected to be set by the LDFLAGS arguments
+// LDFLAGS would be set at compile time by the CI/CD pipeline of any code
+// which leverages this library
+
+var (
+    EnvName         string // Environment name
+    AppName         string // Application/Service name
+    AppVersion      string // Application/Service version
+    CommitAuthor    string // CommitAuthor - The username/email of the person who authored the commit
+	CommitID        string // CommitID - The SHA1 checksum of the commit
+	CommitTime      string // CommitTime - The time that the commit occurred
+	BuildTime       string // BuildTime - Timestamp that the build occurred
+    Branch          string // Branch - The branch the commit exists in
+)
+
+// Initialize your app
+
+app := tellme.NewApp(
+    EnvName,
+    AppName,
+    AppVersion,
+    BuildTime,
+    CommitAuthor,
+    CommitID,
+    CommitTime,
+    Branch,
+)
+
+// Get Info
+app.Info // returns a json serializable struct
+// Get Env
+app.Env // returns map[string]string
+// Get Metrics
+app.Metrics // returns a json serializable struct
+// Get Threaddump
+app.Threaddump // returns a string
+```
