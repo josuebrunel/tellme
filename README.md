@@ -1,3 +1,6 @@
+[![test](https://github.com/josuebrunel/tellme/actions/workflows/test.yml/badge.svg)](https://github.com/josuebrunel/tellme/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/josuebrunel/tellme/badge.svg?branch=main)](https://coveralls.io/github/josuebrunel/tellme?branch=main)
+
 # tellme
 
 It's a small Go package exposing running app informations.
