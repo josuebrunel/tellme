@@ -4,7 +4,7 @@
 # tellme
 
 It's a small Go package exposing running app informations.
-It's inspired by **Spring Actuator** . It's inspired by [go-actuator](https://github.com/sinhashubham95/go-actuator)
+It's inspired by [go-actuator](https://github.com/sinhashubham95/go-actuator)
 
 NB: I was forced to expose the same information for a Go microservice :D
 
@@ -29,9 +29,9 @@ var (
     AppName         string // Application/Service name
     AppVersion      string // Application/Service version
     CommitAuthor    string // CommitAuthor - The username/email of the person who authored the commit
-	CommitID        string // CommitID - The SHA1 checksum of the commit
-	CommitTime      string // CommitTime - The time that the commit occurred
-	BuildTime       string // BuildTime - Timestamp that the build occurred
+    CommitID        string // CommitID - The SHA1 checksum of the commit
+    CommitTime      string // CommitTime - The time that the commit occurred
+    BuildTime       string // BuildTime - Timestamp that the build occurred
     Branch          string // Branch - The branch the commit exists in
 )
 
