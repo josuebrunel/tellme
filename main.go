@@ -71,6 +71,22 @@ type App struct {
 	Threaddump []byte            `json:"threaddump"`
 }
 
+func (a App) GetEnv() map[string]string {
+	return a.Env
+}
+
+func (a App) GetInfo() InfoParams {
+	return a.Info
+}
+
+func (a App) GetMetrics() MemStats {
+	return a.Metrics
+}
+
+func (a App) GetThreadDump() []byte {
+	return a.Threaddump
+}
+
 func NewApp(env, name, version, buildStamp, commitAuthor, commitID, commitTime, commitBranch string) App {
 	info := InfoParams{
 		EnvName:        env,

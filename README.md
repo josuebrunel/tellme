@@ -49,11 +49,11 @@ app := tellme.NewApp(
 )
 
 // Get Info
-app.Info // returns a json serializable struct
+app.GetInfo() // returns a json serializable struct
 // Get Env
-app.Env // returns map[string]string
+app.GetEnv() // returns map[string]string
 // Get Metrics
-app.Metrics // returns a json serializable struct
+app.GetMetrics() // returns a json serializable struct
 // Get Threaddump
-app.Threaddump // returns a string
+app.GetThreadDump() // returns []byte
 ```

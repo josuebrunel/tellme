@@ -84,4 +84,11 @@ func TestApp(t *testing.T) {
 			t.Fatalf("[ASSERT-ERROR] expected %s but got %s\n", archVersion, app.Info.RuntimeVersion)
 		}
 	})
+
+	t.Run("All", func(t *testing.T) {
+		app.GetInfo()
+		app.GetEnv()
+		app.GetMetrics()
+		app.GetThreadDump()
+	})
 }
