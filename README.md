@@ -56,4 +56,22 @@ app.GetEnv() // returns map[string]string
 app.GetMetrics() // returns a json serializable struct
 // Get Threaddump
 app.GetThreadDump() // returns []byte
+
+
+```
+
+### Makefile example
+
+```make
+NAME=myApp
+VERSION=$(shell git describe)
+BUILDTIME=$(shell date --rfc-3339=ns)
+COMMIT_AUTHOR=$(shell git show -s --format='%ae')
+COMMIT_ID=$(shell git show -s --format='%H')
+COMMIT_TIME=$(shell git show -s --format=%ci)
+BRANCH=$(shell git branch --show)
+
+build:
+    go build -ldflags="-X 'app/<subpkg>.AppName=${NAME}' -X 'app/<subpkg>.AppVersion=${VERSION}' -X 'app/<subpkg>.BuildTime=${BUILDTIME}' -X 'app/<subpkg>.CommitAuthor=${COMMIT_AUTHOR}' -X 'app/<subpkg>.CommitID=${COMMIT_ID}' -X 'app/<subpkg>.CommitTime=${COMMIT_TIME}' -X 'app/<subpkg>.Branch=${BRANCH}'"\
+	-o bin/$(NAME) ${ENTRYPOINT}
 ```
